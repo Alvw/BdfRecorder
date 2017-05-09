@@ -21,7 +21,6 @@ public class SettingsWindow extends JFrame implements AdsDataListener {
 
     private Controller controller;
     private AdsConfiguration adsConfiguration;
-    private int adsDataFrameSize;
     private int adsDataFrameCounter;
     private int adsDataFrameFrequency;
     private String patientIdentificationLabel = "Patient";
@@ -173,7 +172,6 @@ public class SettingsWindow extends JFrame implements AdsDataListener {
                         disableFields();
                         BdfHeaderData bdfHeaderData = saveDataToModel();
                         saveComPortData();
-                        adsDataFrameSize = AdsUtils.getDecodedFrameSize(adsConfiguration);
                         adsDataFrameCounter = 0;
                         adsDataFrameFrequency = adsConfiguration.getSps().getValue() / adsConfiguration.getDeviceType().getMaxDiv().getValue();
                         setProcessReport("Connecting...");
